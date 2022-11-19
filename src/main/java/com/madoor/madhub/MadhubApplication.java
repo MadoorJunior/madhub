@@ -1,12 +1,11 @@
 package com.madoor.madhub;
 
-import cn.dev33.satoken.secure.SaSecureUtil;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.HashMap;
-
 @SpringBootApplication
+@MapperScan("com.madoor.madhub.mapper")
 public class MadhubApplication {
 
     public static void main(String[] args) {
