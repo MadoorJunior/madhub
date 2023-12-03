@@ -1,6 +1,6 @@
 server:
   # 端口
-  port: 9099
+  port: 8099
 
 sa-token:
   # token名称 (同时也是cookie名称)
@@ -32,6 +32,12 @@ spring:
       connection-test-query: SELECT 1
   profiles:
     active: dev
+  redis:
+    database: 0
+    host: 222.192.6.51
+    port: 6379
+    password: dt159357509
+
 mybatis-plus:
   global-config:
     db-config:

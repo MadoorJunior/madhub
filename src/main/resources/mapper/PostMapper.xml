@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.madoor.madhub.mapper.PostMapper">
+    <resultMap type="com.madoor.madhub.model.vo.PostVo" id="PostResultMap">
+        <result property="media" column="media" typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+    </resultMap>
+    <!-- 使用insert、update、delete、select标签编写sql语句 -->
+    <select id="selectPostList" resultType="com.madoor.madhub.model.vo.PostVo" resultMap="PostResultMap">
+        select p.id,
+               content    as text,
+               u.username as username,
+               u.avatar_url as avatar,
+               p.create_time,
+               p.comment,
+               p.view,
+               p.forward,
+               p.thumb_up,
+               p.media
+        from m_post p
+                 join m_user u on p.user_id = u.id
+        order by p.create_time desc
+    </select>
+    <update id="increCommentCount">
+update m_post set comment = comment + 1 where id = #{postId}
+    </update>
+
+</mapper>

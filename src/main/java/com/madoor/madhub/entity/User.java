@@ -15,6 +15,7 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String salt;
     private Integer userType;
     private String intro;
     private String avatarUrl;
@@ -22,6 +23,4 @@ public class User {
     private LocalDateTime createTime;
     @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime updateTime;
-    @TableLogic
-    private Integer isDeleted;
 }
